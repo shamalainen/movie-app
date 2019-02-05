@@ -1,7 +1,7 @@
 .movie {
   background-color: $cod-gray;
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .movie__images {
@@ -9,43 +9,74 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  width: 40%;
+  width: 30%;
 }
 
-// .movie__images-poster {
-//   // max-width: 100px;
-// }
-
 .movie__images-restriction {
-  max-width: 25px;
+  max-width: 20px;
   position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
+  bottom: 0.25rem;
+  right: 0.25rem;
 }
 
 .movie__information {
   display: flex;
   flex-direction: column;
-  width: 60%;
-  padding: 0.75rem 0.5rem;
+  width: 70%;
+  padding: 0.5rem;
   color: $white;
+
+  @media screen and (min-width: 360px) {
+    padding: 0.75rem;
+  }
+
+  @media screen and (min-width: $small) {
+    padding: 1rem;
+  }
 }
 
 .movie__information-name {
   @include font-size(14px);
   font-weight: 500;
   margin-bottom: 0.5rem;
+
+  @media screen and (min-width: 360px) {
+    @include font-size(16px);
+  }
+
+  @media screen and (min-width: $small) {
+    @include font-size(18px);
+  }
 }
 
 .movie__information-name-original {
-  @include font-size(12px);
+  @include font-size(10px);
   font-weight: 300;
+
+  @media screen and (min-width: 360px) {
+    @include font-size(12px);
+  }
+
+  @media screen and (min-width: $small) {
+    @include font-size(14px);
+  }
+}
+
+.movie__information-start-time,
+.movie__information-length {
+  @include font-size(10px);
+  margin: 0;
+  font-weight: 500;
+
+  @media screen and (min-width: 360px) {
+    @include font-size(12px);
+  }
+
+  @media screen and (min-width: $small) {
+    @include font-size(14px);
+  }
 }
 
 .movie__information-start-time {
-  margin: 0;
-}
-
-.movie__information-length {
-  margin: 0;
+  margin-top: auto;
 }

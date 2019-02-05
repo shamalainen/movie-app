@@ -1,4 +1,32 @@
 .movie-listing {
   list-style: none;
   padding-left: 0;
+
+  @media screen and (min-width: $medium-wide) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 2.5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.movie-listing__item {
+  &:not(:first-child) {
+    margin-top: 0.5rem;
+
+    @media screen and (min-width: $medium-wide) {
+      margin-top: 1rem;
+    }
+  }
+
+  &:nth-child(2) {
+    @media screen and (min-width: $medium-wide) {
+      margin-top: 0;
+    }
+  }
+
+  @media screen and (min-width: $medium-wide) {
+    width: 50%;
+  }
 }

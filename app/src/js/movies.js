@@ -34,8 +34,8 @@ const movieData = () => {
         const movieInformationElement = $("<div></div>", {class: "movie__information" }).appendTo(movieElement);
         const titleElement = $("<h2></h2>", {class: "movie__information-name", text: Title }).appendTo(movieInformationElement);
         const titleOriginalElement = $("<h3></h3>", {class: "movie__information-name-original", text: OriginalTitle }).appendTo(movieInformationElement);
-        const showStartElement = $("<h4></h4>", {class: "movie__information-start-time", text: ShowStartTime }).appendTo(movieInformationElement);
-        const movieLengthElement = $("<p></p>", {class: "movie__information-length", text: timeConvert(LengthInMinutes) }).appendTo(movieInformationElement);
+        const showStartElement = $("<p></p>", {class: "movie__information-start-time", text: `START TIME: ${ShowStartTime}` }).appendTo(movieInformationElement);
+        const movieLengthElement = $("<p></p>", {class: "movie__information-length", text: `DURATION: ${timeConvert(LengthInMinutes)}` }).appendTo(movieInformationElement);
 
         movieListItem.appendTo(".js-movie-listing");
       });
