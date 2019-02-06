@@ -22,9 +22,12 @@ const movieTheatres = () => {
         const TheatreID = $(this).find("TheatreID").text();
         const Theatre = $(this).find("Theatre").text();
 
-        movieTheatres.push(Theatre);
         const selectElement = $("#theatres");
         const optionElement = $("<option></option>", {id: TheatreID, class: "theatre-listing__item", text: Theatre }).appendTo(selectElement);
+
+        $('[id]').each(function () {
+          $('[id="' + this.id + '"]:gt(0)').remove();
+        });
       });
     }
   });
@@ -34,7 +37,7 @@ const movieTheatres = () => {
     $('.movie-listing__item').remove();
     movieData(selectedTheatre);
   });
-}
+};
 
 const movieData = (theatre) => {  
   $.ajax({
