@@ -1,0 +1,17 @@
+.page-title {
+  font-weight: 600;
+  max-width: 320px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: $small) {
+    @include font-size(38px);
+    max-width: 380px;
+  }
+
+  @media screen and (min-width: $wide) {
+    @include font-size(50px);
+    max-width: 500px;
+  }
+}

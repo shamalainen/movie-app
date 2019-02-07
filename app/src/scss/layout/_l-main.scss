@@ -1,0 +1,11 @@
+.l-main {
+  padding-top: 2rem;
+
+  @media screen and (min-width: $small) {
+    padding-top: 3rem;
+  }
+
+  @media screen and (min-width: $wide) {
+    padding-top: 4rem;
+  }
+}
