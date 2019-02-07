@@ -1,0 +1,31 @@
+.theatre-listing {
+  @include font-size(14px);
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid $white;
+  color: $white;
+  display: block;
+  font-weight: 600;
+  letter-spacing: 0.15rem;
+  margin: 1.5rem auto 3rem;
+  max-width: 500px;
+  padding: 0.5rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  position: relative;
+  text-align-last: center;
+
+  @media screen and (min-width: $small) {
+    @include font-size(18px);
+    margin: 2.5rem auto 3rem;
+    padding: 0.75rem 0;
+  }
+
+  @media screen and (min-width: $wide) {
+    @include font-size(22px);
+    margin: 3rem auto 5rem;
+    padding: 1rem 0;
+  }
+}
