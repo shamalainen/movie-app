@@ -1,13 +1,13 @@
 .movie-listing {
   list-style: none;
   padding-left: 0;
+  padding-top: 2.5rem;
+  padding-bottom: 5rem;
 
   @media screen and (min-width: $medium-wide) {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding-top: 2.5rem;
-    padding-bottom: 5rem;
   }
 }
 

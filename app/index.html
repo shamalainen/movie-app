@@ -7,10 +7,17 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css" />
-    <title>Dev Boilerplate</title>
+    <title>Movie App</title>
   </head>
   <body>
-    <select name="theatres" id="theatres" class="theatre-listing"></select>
+    <main class="container container--inset">
+      <h1 class="page-title">Let's see what movies are in theaters!</h1>
+      <select name="theatres" id="theatres" class="theatre-listing">
+        <option disabled selected value="" class="theatre-listing__item">
+          -- Select a theatre --
+        </option>
+      </select>
+    </main>
     <ul class="movie-listing js-movie-listing container"></ul>
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
