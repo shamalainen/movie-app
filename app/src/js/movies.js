@@ -54,6 +54,7 @@ const movieData = (theatre) => {
           let ShowStart = $(this).find("dttmShowStartUTC").text();
           const ShowStartTime = ShowStart.split("T")[1].slice(0, -4);
           const LengthInMinutes = $(this).find("LengthInMinutes").text();
+          const Genres = $(this).find("Genres").text();
 
           const movieListItem = $("<li></li>", {class: "movie-listing__item" });
           const movieElement = $("<div></div>", {id: EventID, class: "movie" }).appendTo(movieListItem);
@@ -62,9 +63,16 @@ const movieData = (theatre) => {
           const ratingImageElement = $("<img></img>", {class: "movie__images-restriction", alt: "age restriction", src: RatingImageUrl }).appendTo(movieImagesElement);
           const movieInformationElement = $("<div></div>", {class: "movie__information" }).appendTo(movieElement);
           const titleElement = $("<h2></h2>", {class: "movie__information-name", text: Title }).appendTo(movieInformationElement);
-          const titleOriginalElement = $("<h3></h3>", {class: "movie__information-name-original", text: OriginalTitle }).appendTo(movieInformationElement);
-          const showStartElement = $("<p></p>", {class: "movie__information-start-time", text: `START TIME: ${ShowStartTime}` }).appendTo(movieInformationElement);
-          const movieLengthElement = $("<p></p>", {class: "movie__information-length", text: `DURATION: ${timeConvert(LengthInMinutes)}` }).appendTo(movieInformationElement);
+          const GenresElement = $("<p></p>", {class: "movie__information-genres", text: Genres }).appendTo(movieInformationElement);
+          
+          if (Title !== OriginalTitle) {
+            const movieLengthElement = $("<p></p>", {class: "movie__information-length", text: `${timeConvert(LengthInMinutes)}` }).appendTo(movieInformationElement);
+            const titleOriginalElement = $("<p></p>", {class: "movie__information-name-original", text: `${OriginalTitle}` }).appendTo(movieInformationElement);
+          } else {
+            const movieLengthElement = $("<p></p>", {class: "movie__information-length is-alone", text: `${timeConvert(LengthInMinutes)}` }).appendTo(movieInformationElement);
+          }
+
+          const showStartElement = $("<p></p>", {class: "movie__information-start-time", text: `SHOW STARTS: ${ShowStartTime}` }).appendTo(movieInformationElement);
 
           movieListItem.appendTo(".js-movie-listing");
         }

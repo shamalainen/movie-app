@@ -16,6 +16,7 @@
   width: 100%;
   position: relative;
   text-align-last: center;
+  cursor: pointer;
 
   @media screen and (min-width: $small) {
     @include font-size(18px);

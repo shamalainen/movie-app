@@ -3,7 +3,7 @@
   padding-left: 0;
   padding-bottom: 5rem;
 
-  @media screen and (min-width: $medium-wide) {
+  @media screen and (min-width: $small) {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -12,20 +12,36 @@
 
 .movie-listing__item {
   &:not(:first-child) {
-    margin-top: 0.5rem;
-
-    @media screen and (min-width: $medium-wide) {
-      margin-top: 1rem;
-    }
+    margin-top: 2rem;
   }
 
   &:nth-child(2) {
+    @media screen and (min-width: $small) {
+      margin-top: 0;
+    }
+  }
+
+  &:nth-child(3) {
     @media screen and (min-width: $medium-wide) {
       margin-top: 0;
     }
   }
 
+  &:nth-child(4) {
+    @media screen and (min-width: $wide) {
+      margin-top: 0;
+    }
+  }
+
+  @media screen and (min-width: $small) {
+    width: calc(100% / 2 - 0.5rem);
+  }
+
   @media screen and (min-width: $medium-wide) {
-    width: 50%;
+    width: calc(100% / 3 - 0.75rem);
+  }
+
+  @media screen and (min-width: $wide) {
+    width: calc(100% / 4 - 0.75rem);
   }
 }
