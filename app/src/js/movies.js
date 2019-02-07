@@ -66,8 +66,8 @@ const movieData = (theatre) => {
           const OriginalTitle = $(this).find("OriginalTitle").text();
           const PosterImage = $(this).find("Images EventMediumImagePortrait").text();
           const RatingImageUrl = $(this).find("RatingImageUrl").text();
-          let ShowStart = $(this).find("dttmShowStartUTC").text();
-          const ShowStartTime = ShowStart.split("T")[1].slice(0, -4);
+          let ShowStart = $(this).find("dttmShowStart").text();
+          const ShowStartTime = ShowStart.split("T")[1].slice(0, -3);
           const LengthInMinutes = $(this).find("LengthInMinutes").text();
           const Genres = $(this).find("Genres").text();
 
