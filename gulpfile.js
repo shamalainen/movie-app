@@ -33,43 +33,56 @@ var basePath = {
 var path = {
   styles: {
     src: basePath.src + 'scss/',
-    assets: basePath.assets + 'css/'
+    assets: basePath.assets + 'css/',
   },
   scripts: {
     src: basePath.src + 'js/',
-    assets: basePath.assets + 'js/'
+    assets: basePath.assets + 'js/',
   },
-}
+};
 
 function compileSASS() {
-  return gulp.src(path.styles.src + '**/*.scss')
-  .pipe(sassGlob())
-  .pipe(sass())
-  .pipe(autoprefix({
-    browsers: ['last 2 versions']
-  }))
-  .pipe(path.env !== "development" ? cleanCss() : noop())
-  .pipe(gulp.dest(path.styles.assets))
-  .pipe(browserSync.reload({
-    stream: true
-  }))
+  return gulp
+    .src(path.styles.src + '**/*.scss')
+    .pipe(sassGlob())
+    .pipe(sass())
+    .pipe(
+      autoprefix({
+        browsers: ['last 2 versions'],
+      })
+    )
+    .pipe(path.env !== 'development' ? cleanCss() : noop())
+    .pipe(gulp.dest(path.styles.assets))
+    .pipe(
+      browserSync.reload({
+        stream: true,
+      })
+    );
 }
 
-
 function copyScripts() {
-  return gulp.src(path.scripts.src + '**/*.js')
-    .pipe(concat('scripts.js'))
-    .pipe(babel({
-      presets: ['@babel/env']
-    }))
-    .pipe(path.env !== "development" ? uglify() : noop())
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest(path.scripts.assets))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
+  return (
+    gulp
+      .src(path.scripts.src + '**/*.js')
+      .pipe(concat('scripts.js'))
+      // .pipe(
+      //   babel({
+      //     presets: ['@babel/env'],
+      //   })
+      // )
+      .pipe(path.env !== 'development' && false ? uglify() : noop())
+      .pipe(
+        rename({
+          suffix: '.min',
+        })
+      )
+      .pipe(gulp.dest(path.scripts.assets))
+      .pipe(
+        browserSync.reload({
+          stream: true,
+        })
+      )
+  );
 }
 
 function runWatch() {
@@ -80,9 +93,9 @@ function runWatch() {
 function browserSyncInit() {
   browserSync.init({
     server: {
-      baseDir: './app'
+      baseDir: './app',
     },
-    files: "./app/index.html"
+    files: './app/index.html',
   });
 }
 
@@ -97,11 +110,9 @@ function cleanDist(done) {
 }
 
 function copyToDist(done) {
-  gulp.src('./app/index.html')
-    .pipe(gulp.dest('./dist/'));
-  
-  gulp.src('./app/assets/**/*')
-    .pipe(gulp.dest('./dist/assets/'));
+  gulp.src('./app/index.html').pipe(gulp.dest('./dist/'));
+
+  gulp.src('./app/assets/**/*').pipe(gulp.dest('./dist/assets/'));
 
   done();
 }
@@ -112,16 +123,20 @@ gulp.task('default', gulp.parallel('watch', browserSyncInit), function(done) {
   done();
 });
 
-gulp.task('dist', gulp.series(cleanDist, cleanAssets, compileSASS, copyScripts, copyToDist), function(done) {
-  done();
-});
+gulp.task(
+  'dist',
+  gulp.series(cleanDist, cleanAssets, compileSASS, copyScripts, copyToDist),
+  function(done) {
+    done();
+  }
+);
 
 gulp.task('dev', function(done) {
-  environment("development");
+  environment('development');
   done();
 });
 
 function environment(env) {
   console.log('Running tasks in ' + env + ' mode.');
-  return path.env = env;
+  return (path.env = env);
 }
