@@ -70,12 +70,12 @@ const renderMovieListItem = ({
   const movieImagesElement = $('<div></div>', {
     class: 'movie__images',
   }).appendTo(movieElement);
-  const posterImageElement = $('<img></img>', {
+  $('<img></img>', {
     class: 'movie__images-poster',
     alt: 'poster image',
     src: posterImage,
   }).appendTo(movieImagesElement);
-  const ratingImageElement = $('<img></img>', {
+  $('<img></img>', {
     class: 'movie__images-restriction',
     alt: 'age restriction',
     src: ratingImageUrl,
@@ -83,33 +83,33 @@ const renderMovieListItem = ({
   const movieInformationElement = $('<div></div>', {
     class: 'movie__information',
   }).appendTo(movieElement);
-  const titleElement = $('<h2></h2>', {
+  $('<h2></h2>', {
     class: 'movie__information-name',
     text: title,
   }).appendTo(movieInformationElement);
-  const GenresElement = $('<p></p>', {
+  $('<p></p>', {
     class: 'movie__information-genres',
     text: genres,
   }).appendTo(movieInformationElement);
 
   // Shows original name if it's not the same as the normal title.
   if (title !== originalTitle) {
-    const movieLengthElement = $('<p></p>', {
+    $('<p></p>', {
       class: 'movie__information-length',
       text: `${timeConvert(lengthInMinutes)}`,
     }).appendTo(movieInformationElement);
-    const titleOriginalElement = $('<p></p>', {
+    $('<p></p>', {
       class: 'movie__information-name-original',
       text: `${originalTitle}`,
     }).appendTo(movieInformationElement);
   } else {
-    const movieLengthElement = $('<p></p>', {
+    $('<p></p>', {
       class: 'movie__information-length is-alone',
       text: `${timeConvert(lengthInMinutes)}`,
     }).appendTo(movieInformationElement);
   }
 
-  const showStartElement = $('<p></p>', {
+  $('<p></p>', {
     class: 'movie__information-start-time',
     text: `SHOW STARTS: ${showStartTime}`,
   }).appendTo(movieInformationElement);
