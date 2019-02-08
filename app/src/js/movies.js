@@ -4,20 +4,13 @@ $(document).ready(function() {
 });
 
 // time conversion function.
-// Takes time (minutes) as parameter.
 const timeConvert = (time) => {
-  // Declare a variable of the given value.
-  const givenMinutes = time;
-  // Then givenMinutes will be divided to hours.
-  const hours = (givenMinutes / 60);
-  // Returns the largest integer for the given value.
-  const rhours = Math.floor(hours);
-  // hours gets substracted with rhours for the remainder of minutes and then it gets multiplied with 60 (seconds).
-  const minutes = (hours - rhours) * 60;
-  // minutes gets rounded to the nearest integer.
-  const rminutes = Math.round(minutes);
+  // Convert time into minutes
+  const min = time % 60;
+  // Convert time into hours
+  const hours = Math.round(time / 60);
   // Returns minutes converted into hours/minutes format.
-  return `${rhours}h ${rminutes}min`;
+  return `${hours}h ${min}min`;
 }
 
 // function that gets all movie theaters from the finnkino API and lists them into an select tag.
@@ -39,8 +32,7 @@ const movieTheatres = () => {
         $('[id]').each(function () {
           $('[id="' + this.id + '"]:gt(0)').remove();
         });
-      });
-    }
+      })    }
   });
 
   // Runs the movieDate() function when a value is selected in the select element.
