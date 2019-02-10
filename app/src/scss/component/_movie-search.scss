@@ -1,4 +1,16 @@
-.theatre-listing {
+.search-movie {
+  display: none;
+  text-align: center;
+}
+
+.search-movie__label {
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.search-movie__input {
   @include font-size(14px);
   appearance: none;
   background-color: transparent;
@@ -8,8 +20,8 @@
   display: block;
   font-weight: 600;
   letter-spacing: 0.1rem;
-  margin: 1.5rem auto 3rem;
-  max-width: 500px;
+  margin: 0.5rem auto 3rem;
+  max-width: 400px;
   padding: 0.5rem 0;
   text-align: center;
   text-transform: uppercase;
@@ -20,13 +32,12 @@
 
   @media screen and (min-width: $small) {
     @include font-size(18px);
-    margin: 2.5rem auto 3rem;
     padding: 0.75rem 0;
   }
 
   @media screen and (min-width: $wide) {
     @include font-size(22px);
-    margin: 3rem auto 5rem;
     padding: 1rem 0;
+    margin: 1rem auto 5rem;
   }
 }

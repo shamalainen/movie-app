@@ -54,6 +54,7 @@ const movieData = (theatre) => {
       $(data).find("Shows Show").each(function() {
         // Shows only the theathers movies which was selected in the dropdown.
         if (theatre === $(this).find("Theatre").text()) {
+          $('.js-search-movie').show();
           const EventID = $(this).find("EventID").text();
           const Title = $(this).find("Title").text();
           const OriginalTitle = $(this).find("OriginalTitle").text();
@@ -84,9 +85,21 @@ const movieData = (theatre) => {
 
           const showStartElement = $("<p></p>", {class: "movie__information-start-time", text: `SHOW STARTS: ${ShowStartTime}` }).appendTo(movieInformationElement);
 
-          // Appends items to the listing element.
           movieListItem.appendTo(".js-movie-listing");
         }
+      });
+
+      $("#nameSearch").keyup(function(){
+        const movieNameSearch = $(this).val();
+
+        $('.movie__information-name').each(function() {
+          const currentItemText = $(this).text();
+          if (currentItemText.toLowerCase().indexOf(movieNameSearch.toLowerCase()) >= 0) {
+            $(this).closest('.movie-listing__item').show();
+          } else {
+            $(this).closest('.movie-listing__item').hide();
+          }
+        });
       });
     }
   });
