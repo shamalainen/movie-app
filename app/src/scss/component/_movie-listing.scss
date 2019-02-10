@@ -11,27 +11,7 @@
 }
 
 .movie-listing__item {
-  &:not(:first-child) {
-    margin-top: 2rem;
-  }
-
-  &:nth-child(2) {
-    @media screen and (min-width: $small) {
-      margin-top: 0;
-    }
-  }
-
-  &:nth-child(3) {
-    @media screen and (min-width: $medium-wide) {
-      margin-top: 0;
-    }
-  }
-
-  &:nth-child(4) {
-    @media screen and (min-width: $wide) {
-      margin-top: 0;
-    }
-  }
+  margin-bottom: 2rem;
 
   @media screen and (min-width: $small) {
     width: calc(100% / 2 - 0.5rem);
