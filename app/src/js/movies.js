@@ -54,7 +54,10 @@ const movieData = (theatre) => {
       $(data).find("Shows Show").each(function() {
         // Shows only the theathers movies which was selected in the dropdown.
         if (theatre === $(this).find("Theatre").text()) {
+          // Shows the movie name search input when theatre is selected
           $('.js-search-movie').show();
+
+          // Declare variables for API fetch items.
           const EventID = $(this).find("EventID").text();
           const Title = $(this).find("Title").text();
           const OriginalTitle = $(this).find("OriginalTitle").text();
@@ -89,11 +92,16 @@ const movieData = (theatre) => {
         }
       });
 
+      // Watches for key presses on the input element.
       $("#nameSearch").keyup(function(){
+        // Set vairable for the current value in the input.
         const movieNameSearch = $(this).val();
 
+        // For each movie__information-name item do this ...
         $('.movie__information-name').each(function() {
+          // Get the current text from the item
           const currentItemText = $(this).text();
+          // If the input text is found in the item text, it shows the item. Otherwise hides it.
           if (currentItemText.toLowerCase().indexOf(movieNameSearch.toLowerCase()) >= 0) {
             $(this).closest('.movie-listing__item').show();
           } else {
