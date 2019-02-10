@@ -32,7 +32,8 @@ const movieTheatres = () => {
         $('[id]').each(function () {
           $('[id="' + this.id + '"]:gt(0)').remove();
         });
-      })    }
+      })
+    }
   });
 
   // Runs the movieDate() function when a value is selected in the select element.
